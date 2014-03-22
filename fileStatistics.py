@@ -12,7 +12,7 @@ def get_dir_filepaths(dir_path):
 
 
 def get_file_words_count(*args):
-    word_count = {};
+    word_count = {}
 
     for file in args:
         opened_file = open(file, 'r')
@@ -26,6 +26,27 @@ def get_file_words_count(*args):
 
         opened_file.close()
     return word_count
+
+
+def get_file_symbols_count(*args):
+    word_symbols_count = {}
+
+    for file in args:
+        opened_file = open(file, 'r')
+
+        while True:
+            symbol = opened_file.read(1)
+            if symbol == "":
+                break
+            if word_symbols_count.has_key(symbol):
+                word_symbols_count[symbol] += 1
+            else:
+                word_symbols_count[symbol] = 1
+
+        opened_file.close()
+    return word_symbols_count
+
+
 
 
 
