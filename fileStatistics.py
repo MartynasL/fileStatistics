@@ -19,7 +19,7 @@ def get_file_words_count(*args):
 
         for line in opened_file:
             for word in string.split(line):
-                if word_count.has_key(word):
+                if word in word_count:
                     word_count[word] += 1
                 else:
                     word_count[word] = 1
@@ -38,7 +38,7 @@ def get_file_symbols_count(*args):
             symbol = opened_file.read(1)
             if symbol == "":
                 break
-            if word_symbols_count.has_key(symbol):
+            if symbol in word_symbols_count:
                 word_symbols_count[symbol] += 1
             else:
                 word_symbols_count[symbol] = 1
