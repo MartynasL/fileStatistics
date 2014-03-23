@@ -47,9 +47,6 @@ def get_file_symbols_count(*args):
     return word_symbols_count
 
 
-
-
-
-
-
-
+def write_dict_to_file(result_file, **kwargs):
+    for item in kwargs.items():
+            result_file.write("%s = %s\n" % item)
