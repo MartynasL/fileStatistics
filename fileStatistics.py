@@ -62,7 +62,7 @@ def main():
         words_in_each_file = get_file_words_count(*file_paths)
         write_dict_to_file(result_file, **words_in_each_file)
 
-        result_file.write("Symbols in all files for directory %s:\n"
+        result_file.write("\nSymbols in all files for directory %s:\n"
                           % sys.argv[1])
         symbols_in_each_file = get_file_symbols_count(*file_paths)
         write_dict_to_file(result_file, **symbols_in_each_file)
@@ -70,13 +70,13 @@ def main():
         for file in file_paths:
             words_in_file = get_file_words_count(file)
             symbols_in_file = get_file_symbols_count(file)
-            result_file.write("Statistics for file %s:" % file)
+            result_file.write("\nStatistics for file %s:\n" % file)
 
-            result_file.write("Words:\n")
-            write_dict_to_file(result_file, words_in_file)
+            result_file.write("\nWords:\n")
+            write_dict_to_file(result_file, **words_in_file)
 
-            result_file.write("Symbols:\n")
-            write_dict_to_file(result_file, symbols_in_file)
+            result_file.write("\nSymbols:\n")
+            write_dict_to_file(result_file, **symbols_in_file)
 
         result_file.close()
     else:
