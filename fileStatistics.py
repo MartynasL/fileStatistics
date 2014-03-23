@@ -81,3 +81,6 @@ def main():
         result_file.close()
     else:
         print("Incorrect number of command line parameters")
+
+if __name__ == "__main__":
+    main()
