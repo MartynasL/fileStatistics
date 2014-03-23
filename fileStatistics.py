@@ -73,10 +73,10 @@ def main():
             result_file.write("Statistics for file %s:" % file)
 
             result_file.write("Words:\n")
-            write_dict_to_file(words_in_file)
+            write_dict_to_file(result_file, words_in_file)
 
             result_file.write("Symbols:\n")
-            write_dict_to_file(symbols_in_file)
+            write_dict_to_file(result_file, symbols_in_file)
 
         result_file.close()
     else:
