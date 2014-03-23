@@ -50,3 +50,23 @@ def get_file_symbols_count(*args):
 def write_dict_to_file(result_file, **kwargs):
     for item in kwargs.items():
             result_file.write("%s = %s\n" % item)
+
+
+def main():
+    if len(sys.argv) == 3:
+        file_paths = get_dir_filepaths(sys.argv[1])
+        result_file = open(sys.argv[2], 'w')
+
+        result_file.write("Words in all files for directory %s:\n"
+                          % sys.argv[1])
+        words_in_each_file = get_file_words_count(*file_paths)
+        write_dict_to_file(result_file, **words_in_each_file)
+
+        result_file.write("Symbols in all files for directory %s:\n"
+                          % sys.argv[1])
+        symbols_in_each_file = get_file_symbols_count(*file_paths)
+        write_dict_to_file(result_file, **symbols_in_each_file)
+
+        result_file.close()
+    else:
+        print("Incorrect number of command line parameters")
