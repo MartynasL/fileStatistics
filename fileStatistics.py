@@ -6,8 +6,11 @@ import string
 def get_dir_filepaths(dir_path):
     filepaths = os.listdir(dir_path)
     for file in filepaths:
-        filepaths[filepaths.index(file)] = string.join([dir_path,
-                                                        '/', file], '')
+        file_path = string.join([dir_path, file], '/')
+        if os.path.isfile(file_path):
+            filepaths[filepaths.index(file)] = file_path
+        else:
+            filepaths.remove(file)
     return filepaths
 
 
